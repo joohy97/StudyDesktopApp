@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnalogClockApp", "AnalogClo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonteCarloPiAPP", "MonteCarloPiAPP\MonteCarloPiAPP.csproj", "{ABB74046-8B76-41D4-B519-11C73F36EBA6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SnakeBiteGame", "SnakeBiteGame\SnakeBiteGame.csproj", "{7B6BD38D-BBA1-47FB-B6CA-7AE0338880C2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{ABB74046-8B76-41D4-B519-11C73F36EBA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ABB74046-8B76-41D4-B519-11C73F36EBA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ABB74046-8B76-41D4-B519-11C73F36EBA6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B6BD38D-BBA1-47FB-B6CA-7AE0338880C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B6BD38D-BBA1-47FB-B6CA-7AE0338880C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B6BD38D-BBA1-47FB-B6CA-7AE0338880C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B6BD38D-BBA1-47FB-B6CA-7AE0338880C2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
