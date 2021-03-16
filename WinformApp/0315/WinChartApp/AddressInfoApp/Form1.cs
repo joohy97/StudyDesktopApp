@@ -72,25 +72,30 @@ namespace AddressInfoApp
                 return;
             }
 
-            using (SqlConnection conn = new SqlConnection(connString))
+            if (MessageBox.Show("수정하시겠습니까?", "수정",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                if (conn.State == ConnectionState.Closed)
-                    conn.Open();
+                using (SqlConnection conn = new SqlConnection(connString))
+                {
+                    if (conn.State == ConnectionState.Closed)
+                        conn.Open();
 
-                string query = $"UPDATE Address SET " +
-                               $"FullName = '{TxtFullName.Text}', " +
-                               $"Mobile = '{TxtMobile.Text.Replace("-", "")}', " +
-                               $"Addr = '{TxtAddr.Text}', " +
-                               $"ModId = 'admin', " +
-                               $"ModDate = GETDATE() " +
-                               $"WHERE Idx = {result};";
+                    string query = $"UPDATE Address SET " +
+                                   $"FullName = '{TxtFullName.Text}', " +
+                                   $"Mobile = '{TxtMobile.Text.Replace("-", "")}', " +
+                                   $"Addr = '{TxtAddr.Text}', " +
+                                   $"ModId = 'admin', " +
+                                   $"ModDate = GETDATE() " +
+                                   $"WHERE Idx = {result};";
 
-                SqlCommand cmd = new SqlCommand(query, conn);
-                if (cmd.ExecuteNonQuery() == 1)
-                    MessageBox.Show("수정했습니다");
-                else
-                    MessageBox.Show("수정하지 못했습니다");
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    if (cmd.ExecuteNonQuery() == 1)
+                        MessageBox.Show("수정했습니다");
+                    else
+                        MessageBox.Show("수정하지 못했습니다");
+                }
             }
+                
             RefreshData();
             ClearInput();
         }
@@ -103,20 +108,25 @@ namespace AddressInfoApp
                 MessageBox.Show("데이터를 선택하세요");
                 return;
             }
-            
-            using (SqlConnection conn = new SqlConnection(connString))
+
+            if (MessageBox.Show("삭제하시겠습니까?", "삭제",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                if (conn.State == ConnectionState.Closed)
-                    conn.Open();
+                using (SqlConnection conn = new SqlConnection(connString))
+                {
+                    if (conn.State == ConnectionState.Closed)
+                        conn.Open();
 
-                string query = $"DELETE FROM Address WHERE idx = {result}";
+                    string query = $"DELETE FROM Address WHERE idx = {result}";
 
-                SqlCommand cmd = new SqlCommand(query, conn);
-                if (cmd.ExecuteNonQuery() == 1)
-                    MessageBox.Show("삭제했습니다");
-                else
-                    MessageBox.Show("삭제하지 못했습니다");
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    if (cmd.ExecuteNonQuery() == 1)
+                        MessageBox.Show("삭제했습니다");
+                    else
+                        MessageBox.Show("삭제하지 못했습니다");
+                }
             }
+
             RefreshData();
             ClearInput();
         }
