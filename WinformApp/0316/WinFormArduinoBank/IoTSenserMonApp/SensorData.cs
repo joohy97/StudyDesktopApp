@@ -10,13 +10,13 @@ namespace IoTSenserMonApp
     {
         public DateTime Current { get; set; }
         public int Value { get; set; }
-        public bool simulFlag { get; set; }
+        public bool SimulFlag { get; set; }
 
         public SensorData(DateTime current, int value, bool simulFlag)
         {
             Current = current;
             Value = value;
-            this.simulFlag = simulFlag;
+            this.SimulFlag = simulFlag;
         }
     }
 

@@ -138,16 +138,16 @@ namespace IoTSenserMonApp
             this.LblConnectTime.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.LblConnectTime.Location = new System.Drawing.Point(10, 38);
             this.LblConnectTime.Name = "LblConnectTime";
-            this.LblConnectTime.Size = new System.Drawing.Size(256, 15);
+            this.LblConnectTime.Size = new System.Drawing.Size(228, 15);
             this.LblConnectTime.TabIndex = 1;
-            this.LblConnectTime.Text = "Connection Time : 2021-03-16 오전 10:32:33";
+            this.LblConnectTime.Text = "Connection Time : 2021-03-16 10:32:33";
             // 
             // TxtSensorNum
             // 
-            this.TxtSensorNum.Location = new System.Drawing.Point(272, 35);
+            this.TxtSensorNum.Location = new System.Drawing.Point(259, 35);
             this.TxtSensorNum.Name = "TxtSensorNum";
             this.TxtSensorNum.ReadOnly = true;
-            this.TxtSensorNum.Size = new System.Drawing.Size(39, 21);
+            this.TxtSensorNum.Size = new System.Drawing.Size(52, 21);
             this.TxtSensorNum.TabIndex = 2;
             this.TxtSensorNum.Text = "00";
             this.TxtSensorNum.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -280,6 +280,7 @@ namespace IoTSenserMonApp
             this.BtnViewAll.TabIndex = 7;
             this.BtnViewAll.Text = "View All";
             this.BtnViewAll.UseVisualStyleBackColor = true;
+            this.BtnViewAll.Click += new System.EventHandler(this.BtnViewAll_Click);
             // 
             // BtnZoom
             // 
@@ -290,6 +291,7 @@ namespace IoTSenserMonApp
             this.BtnZoom.TabIndex = 8;
             this.BtnZoom.Text = "Zoom";
             this.BtnZoom.UseVisualStyleBackColor = true;
+            this.BtnZoom.Click += new System.EventHandler(this.BtnZoom_Click);
             // 
             // Form1
             // 
