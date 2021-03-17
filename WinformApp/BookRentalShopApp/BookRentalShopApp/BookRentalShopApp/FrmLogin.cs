@@ -18,14 +18,19 @@ namespace BookRentalShopApp
         public FrmLogin()
         {
             InitializeComponent();
-        }
-
-        private void FrmLogin_Load(object sender, EventArgs e)
-        {
             
         }
+        
+        private void FrmLogin_Load(object sender, EventArgs e)
+        {
+            this.Activate();
+            TxtUserId.Focus();
+        }
+
+        
         private void BtnLogin_Click(object sender, EventArgs e) //로그인
         {
+            string strUserId = "";
             //MessageBox.Show("로그인");
             if (string.IsNullOrEmpty(TxtUserId.Text) || string.IsNullOrEmpty(TxtPassword.Text))
             {
@@ -39,11 +44,40 @@ namespace BookRentalShopApp
                 {
                     if (conn.State == ConnectionState.Closed) conn.Open();
 
-                    SqlCommand cmd = new SqlCommand();
+                    var query = "SELECT userID FROM memberTbl " +
+                                " WHERE userID = @userID " +
+                                "   AND passwords = @passwords " +
+                                "   AND levels = 'S'";
+                    
+                    SqlCommand cmd = new SqlCommand(query, conn);
 
-                    SqlParameter param; //SQL Injection 방지
+                    SqlParameter pUserID = new SqlParameter("@userID", SqlDbType.VarChar, 20); //SQL Injection 방지
+                    pUserID.Value = TxtUserId.Text;
+                    cmd.Parameters.Add(pUserID);
+
+                    SqlParameter pPasswords = new SqlParameter("@passwords", SqlDbType.VarChar, 20); //SQL Injection 방지
+                    pPasswords.Value = TxtPassword.Text;
+                    cmd.Parameters.Add(pPasswords);
+
                     SqlDataReader reader = cmd.ExecuteReader();
+                    reader.Read();
+                    strUserId = reader["userID"] != null ? reader["userID"].ToString() : "";
+                    reader.Close();
+                    //MessageBox.Show(strUserId);
 
+                    if (string.IsNullOrEmpty(strUserId))
+                    {
+                        MetroMessageBox.Show(this, "접속실패", "로그인실패", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        var updateQuery = $"UPDATE membertbl SET lastLoginDt = GETDATE(), loginIpAddr = '{Helper.Common.GetLocalIp()}' " +
+                                          $" WHERE userId = '{strUserId}'";
+                        cmd.CommandText = updateQuery;
+                        cmd.ExecuteNonQuery();
+                        MetroMessageBox.Show(this, "접속성공", "로그인성공", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Close();
+                    }
                 }
             }
             catch (Exception ex)
