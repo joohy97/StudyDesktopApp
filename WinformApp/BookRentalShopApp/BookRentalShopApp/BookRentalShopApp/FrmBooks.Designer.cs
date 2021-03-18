@@ -30,6 +30,7 @@ namespace BookRentalShopApp
         private void InitializeComponent()
         {
             this.GrbDetail = new System.Windows.Forms.GroupBox();
+            this.DtpReleaseDate = new MetroFramework.Controls.MetroDateTime();
             this.TxtDescriptions = new MetroFramework.Controls.MetroTextBox();
             this.TxtPrice = new MetroFramework.Controls.MetroTextBox();
             this.TxtISBN = new MetroFramework.Controls.MetroTextBox();
@@ -49,7 +50,6 @@ namespace BookRentalShopApp
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.DgvData = new System.Windows.Forms.DataGridView();
-            this.DtpReleaseDate = new MetroFramework.Controls.MetroDateTime();
             this.GrbDetail.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvData)).BeginInit();
             this.SuspendLayout();
@@ -83,6 +83,16 @@ namespace BookRentalShopApp
             this.GrbDetail.TabIndex = 0;
             this.GrbDetail.TabStop = false;
             this.GrbDetail.Text = "상세";
+            // 
+            // DtpReleaseDate
+            // 
+            this.DtpReleaseDate.CustomFormat = "yyyy-MM-dd";
+            this.DtpReleaseDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.DtpReleaseDate.Location = new System.Drawing.Point(91, 163);
+            this.DtpReleaseDate.MinimumSize = new System.Drawing.Size(0, 29);
+            this.DtpReleaseDate.Name = "DtpReleaseDate";
+            this.DtpReleaseDate.Size = new System.Drawing.Size(214, 29);
+            this.DtpReleaseDate.TabIndex = 7;
             // 
             // TxtDescriptions
             // 
@@ -414,14 +424,6 @@ namespace BookRentalShopApp
             this.DgvData.Size = new System.Drawing.Size(349, 432);
             this.DgvData.TabIndex = 1;
             this.DgvData.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvData_CellContentClick);
-            // 
-            // DtpReleaseDate
-            // 
-            this.DtpReleaseDate.Location = new System.Drawing.Point(91, 163);
-            this.DtpReleaseDate.MinimumSize = new System.Drawing.Size(0, 29);
-            this.DtpReleaseDate.Name = "DtpReleaseDate";
-            this.DtpReleaseDate.Size = new System.Drawing.Size(200, 29);
-            this.DtpReleaseDate.TabIndex = 7;
             // 
             // FrmBooks
             // 

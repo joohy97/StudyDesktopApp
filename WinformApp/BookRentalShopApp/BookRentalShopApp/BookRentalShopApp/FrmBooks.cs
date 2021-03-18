@@ -32,8 +32,8 @@ namespace BookRentalShopApp
             InitCboData();
             RefreshData();
 
-            DtpReleaseDate.CustomFormat = "yyyy-MM-dd";
-            DtpReleaseDate.Format = DateTimePickerFormat.Custom;
+            //DtpReleaseDate.CustomFormat = "yyyy-MM-dd";
+            //DtpReleaseDate.Format = DateTimePickerFormat.Custom;
         }
 
         
@@ -128,7 +128,7 @@ namespace BookRentalShopApp
         {
             TxtIdx.Text = selData.Cells[0].Value.ToString();
             TxtAuthor.Text = selData.Cells[1].Value.ToString();
-            CboDivision.SelectedValue = selData.Cells[2].Value.ToString();
+            CboDivision.SelectedValue = selData.Cells[3].Value.ToString();
 
             TxtNames.Text = selData.Cells[4].Value.ToString();
             DtpReleaseDate.Value = (DateTime)selData.Cells[5].Value;
