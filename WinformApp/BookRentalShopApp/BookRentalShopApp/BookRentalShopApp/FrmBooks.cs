@@ -105,7 +105,7 @@ namespace BookRentalShopApp
                 using (SqlConnection conn = new SqlConnection(Helper.Common.ConnString))
                 {
                     if (conn.State == ConnectionState.Closed) conn.Open();
-                    var query = "SELECT division, names FROM dbo.divtbl";
+                    var query = "SELECT Division, Names FROM dbo.divtbl";
                     SqlCommand cmd = new SqlCommand(query, conn);
                     SqlDataReader reader = cmd.ExecuteReader();
                     var temp = new Dictionary<string, string>();
@@ -113,7 +113,7 @@ namespace BookRentalShopApp
                     {
                         temp.Add(reader[0].ToString(), reader[1].ToString());
                     }
-                    CboDivision.DataSource = new BindingSource(temp, "divtbl");
+                    CboDivision.DataSource = new BindingSource(temp, null);
                     CboDivision.DisplayMember = "Value";
                     CboDivision.ValueMember = "Key";
                     CboDivision.SelectedIndex = -1;
@@ -128,7 +128,7 @@ namespace BookRentalShopApp
         {
             TxtIdx.Text = selData.Cells[0].Value.ToString();
             TxtAuthor.Text = selData.Cells[1].Value.ToString();
-            CboDivision.SelectedValue = selData.Cells[3].Value.ToString();
+            CboDivision.SelectedValue = selData.Cells[2].Value.ToString();
 
             TxtNames.Text = selData.Cells[4].Value.ToString();
             DtpReleaseDate.Value = (DateTime)selData.Cells[5].Value;
